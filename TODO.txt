@@ -1,7 +1,10 @@
 TODO LIST:
 MD = Must Do per WSAP
 SI = Suggested Idea for uniquness
-About: //Aryan
+
+Design:
+    -Chalky idea 
+About: //Aryan 
     -Description of the band MD
     -Profiles with for each member (steal from wwb.org) MD
     -Music they have (template) MD
@@ -10,7 +13,9 @@ Tour Dates: //Aryan
     -Schedule of dates/locations MD
     -Online ticket purchasing MD
     -https://leafletjs.com/ - Interactive Map SD
+        -Add 
     -Interactive vynils to view all albums
+    -Spotify HTML Embed for different cities
 Merch: //Garrett
     -Band Merchandise to sell MD
     -create a seperate page MD
