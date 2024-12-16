@@ -1,26 +1,26 @@
 TODO LIST:
 MD = Must Do per WSAP
 SI = Suggested Idea for uniquness
-About:
+About: //Aryan
     -Description of the band MD
     -Profiles with for each member (steal from wwb.org) MD
     -Music they have (template) MD
     -How the band got started (timeline?) MD
-Tour Dates:
+Tour Dates: //Aryan
     -Schedule of dates/locations MD
     -Online ticket purchasing MD
     -https://leafletjs.com/ - Interactive Map SD
     -Interactive vynils to view all albums
-Merch:
+Merch: //Garrett
     -Band Merchandise to sell MD
     -create a seperate page MD
     -multiple payment options MD 
     -create designs MD
     -Lottery system where buying merch can get you tour tickets? SI
-Contact Us:
+Contact Us: //Garrett
     -Booking link (IDK what this means) MD
     -Email Link (opens outlook?) MD
     -Customer Service Link (A.I.? SI) MD
-Other Ideas:
+Other Ideas: //Aryan
     -Fan Wall that people can post images to
     
