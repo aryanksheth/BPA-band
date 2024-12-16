@@ -9,6 +9,8 @@ About:
 Tour Dates:
     -Schedule of dates/locations MD
     -Online ticket purchasing MD
+    -https://leafletjs.com/ - Interactive Map SD
+    -Interactive vynils to view all albums
 Merch:
     -Band Merchandise to sell MD
     -create a seperate page MD
@@ -19,4 +21,6 @@ Contact Us:
     -Booking link (IDK what this means) MD
     -Email Link (opens outlook?) MD
     -Customer Service Link (A.I.? SI) MD
+Other Ideas:
+    -Fan Wall that people can post images to
     
