@@ -14,7 +14,7 @@ Tour Dates: //Aryan
     -Online ticket purchasing MD
     -https://leafletjs.com/ - Interactive Map SD
         -Add 
-    -Interactive vynils to view all albums
+    -Interactive vynils to view all albums (take them to merch page) MD
     -Spotify HTML Embed for different cities
 Merch: //Garrett
     -Band Merchandise to sell MD
