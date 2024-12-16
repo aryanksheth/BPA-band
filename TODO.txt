@@ -22,6 +22,7 @@ Merch: //Garrett
     -multiple payment options MD 
     -create designs MD
     -Lottery system where buying merch can get you tour tickets? SI
+    - Template with accesories, aparel, and music to buy MD
 Contact Us: //Garrett
     -Booking link (IDK what this means) MD
     -Email Link (opens outlook?) MD
