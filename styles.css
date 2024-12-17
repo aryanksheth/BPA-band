@@ -1,9 +1,26 @@
 body {
-  background-image: url("https://github.com/aryanksheth/BPA-band/blob/main/dark_emo%20logo%20for%20band%20Stagefright.png?raw=true");
-  opacity: 0.6;
-  size: 100px;
-}
+   margin: 0;
+            padding: 0;
+            background-image: url('chalkboard-1337809.jpg'); /* Replace 'background.jpg' with your image path */
 
+            background-size: cover; /* Ensures the image covers the entire viewport */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-position: center center; /* Centers the image */
+            height: 100vh; /* Makes the body take up the full viewport height */
+            color: #f4f4f4; /* Optional: Text color to contrast the background */
+            font-family: Arial, sans-serif; /* Font style */
+            text-align: center; /* Center-align the text */
+        }
+body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+            z-index: 1; /* Places it above the background */
+        }
 h1 {
   color: white;
   text-align: center;
@@ -12,4 +29,11 @@ h1 {
 p {
   font-family: Times;
   font-size: 20px;
+}
+.chalkboard {
+  background: -webkit-linear-gradient(90deg, #485563 10%, #29323c 90%);
+  background: -moz-linear-gradient(90deg, #485563 10%, #29323c 90%);
+  background: linear-gradient(90deg, #485563 10%, #29323c 90%);
+  padding: 20px;
+  border-radius: 10px;
 }
