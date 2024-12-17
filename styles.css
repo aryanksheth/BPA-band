@@ -6,15 +6,16 @@
 //nothing too in depth but im also having trouble running the program on the schools laptop because I cant download github
 body {
   background-image: url("https://github.com/aryanksheth/BPA-band/blob/main/dark_emo%20logo%20for%20band%20Stagefright.png?raw=true");
+  opacity: 0.6;
 }
 
 h1 {
-  color: white;
+  color: black;
   text-align: center;
 }
 
 p {
-  font-family: white;
+  font-family: Times;
   font-size: 20px;
 }
 </style>
