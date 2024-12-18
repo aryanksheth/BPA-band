@@ -1,15 +1,16 @@
 body {
    margin: 0;
             padding: 0;
-            background-image: url('chalkboard-1337809.jpg'); /* Replace 'background.jpg' with your image path */
+            background-image: url('chalkboard-1337809.jpg'); 
 
-            background-size: cover; /* Ensures the image covers the entire viewport */
-            background-repeat: no-repeat; /* Prevents the image from repeating */
-            background-position: center center; /* Centers the image */
-            height: 100vh; /* Makes the body take up the full viewport height */
-            color: #f4f4f4; /* Optional: Text color to contrast the background */
-            font-family: Arial, sans-serif; /* Font style */
-            text-align: center; /* Center-align the text */
+            background-size: cover; 
+            background-repeat: no-repeat; 
+             background: linear-gradient(to bottom, #3D1B4F);
+            background-position: center center; 
+            height: 100vh; 
+            color: #f4f4f4; 
+            font-family: 'HelpMe' Arial, sans-serif; 
+            text-align: center; 
         }
 body::before {
             content: "";
@@ -18,22 +19,15 @@ body::before {
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
-            z-index: 1; /* Places it above the background */
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1; 
         }
 h1 {
   color: white;
   text-align: center;
 }
+@font-face{
+  font-family: 'HelpMe';
+  src: url('help-me/HelpMe.ttf') format('truetype');
+}
 
-p {
-  font-family: Help Me Font · 1001 Fonts;
-  font-size: 20px;
-}
-.chalkboard {
-  background: -webkit-linear-gradient(90deg, #485563 10%, #29323c 90%);
-  background: -moz-linear-gradient(90deg, #485563 10%, #29323c 90%);
-  background: linear-gradient(90deg, #485563 10%, #29323c 90%);
-  padding: 20px;
-  border-radius: 10px;
-}
