@@ -9,7 +9,7 @@ body {
             background-position: center center; 
             height: 100vh; 
             color: #f4f4f4; 
-            font-family: 'HelpMe' Arial, sans-serif; 
+            font-family: Arial, sans-serif; 
             text-align: center; 
         }
 body::before {
@@ -24,6 +24,7 @@ body::before {
         }
 h1 {
   color: white;
+  font-family: 'HelpMe';
   text-align: center;
 }
 @font-face{
