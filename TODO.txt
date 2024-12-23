@@ -11,9 +11,9 @@ About: //Aryan
     -Music they have (template) MD
     -How the band got started (timeline?) MD
 Tour Dates: //Aryan
-    -Schedule of dates/locations MD
-    -Online ticket purchasing MD
-    -https://leafletjs.com/ - Interactive Map SD
+    -Schedule of dates/locations MD✅
+    -Online ticket purchasing MD 
+    -https://leafletjs.com/ - Interactive Map SD ✅
         -Add 
     -Interactive vynils to view all albums (take them to merch page) MD
     -Spotify HTML Embed for different cities

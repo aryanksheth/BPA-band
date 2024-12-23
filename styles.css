@@ -18,9 +18,17 @@ h1 {
   font-family: 'HelpMe';
   text-align: center;
 }
+h1-tour{
+  color:white;
+  font-family: 'Grooved';
+  font-size: 36px;
+
+}
 @font-face{
   font-family: 'HelpMe';
   src: url('help-me/HelpMe.ttf') format('truetype');
+  font-family: 'Grooved';
+  src: url('gro-ov-ed-font/GroovedPersonalUseRegular-9Y350.ttf') format('truetype');
 }
  nav {
       background-color: #333;

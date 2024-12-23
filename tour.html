@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPA Thing</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="vinyl.css">
+
+    <!-- Leaflet Map API -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        #map {
+            height: 400px;
+            width: 40%;
+            margin-left: 50px;
+            margin-top:-200px;
+        }
+
+        .background-image {
+            background: url('your-image.jpg') no-repeat center center;
+            background-size: cover;
+            height: 400px;
+        }
+        .leaflet-text{
+            position: relative;
+            top: -200px;
+            margin-right: 1000px;
+        }
+        .vinyl-txt{
+            position: relative;
+            top: -300px;
+            margin-left: 650px;
+            font: Grooved;
+        }
+        #vinyl-container{
+             margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <nav>
+                <a href="#" class="nav-logo"><img src="logo.png" alt="Logo"></a>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#services" class="active">Services</a></li>
+                    <li><a href="#contact" class="active">Contact</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+        <div class="background-image"></div>
+    </header>
+    <div class="vinyl-txt">
+        <div class="@font-face">
+        <h1-tour>Check out our merch and win <br> a free chance for a ticket!</h1-tour>
+        </div>
+    </div>
+
+<a href="index.html" id="vinyl-link">
+    <div id="vinyl-container">
+        <div id="wrap">
+            <div id="album">
+                <div id="cover"></div>
+                <div id="vinyl">
+                    <div id="print"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>
+
+    
+    <div class = "leaflet-text">
+        <h1-tour>Find A Concert Near You!</h1-tour>
+    </div>
+    <div id="map">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var map = L.map('map').setView([40.647304, -97.558594], 4);
+           
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+           
+            var popup = L.popup();
+          function onMapClick(e) {
+                popup
+                    .setLatLng(e.latlng)
+                    .setContent("You clicked the map at " + e.latlng.toString())
+                    .openOn(map);
+            }
+             var marker = L.marker([44.97369161057962, -93.25727992599022]).addTo(map);
+            marker.bindPopup("US Bank Stadium | March 31th 2025")
+             var circle = L.circle([44.97369161057962, -93.25727992599022], {
+                color: 'blue',
+                fillColor: 'blue',
+                fillOpacity: 0.25,
+                radius: 500
+            }).addTo(map);
+
+            //new york
+             var marker = L.marker([40.7505, -73.9934]).addTo(map);
+            marker.bindPopup("Madison Square Garden | March 15, 2025")
+            var circle = L.circle([40.7505, -73.9934], {
+                color: 'blue',
+                fillColor: 'blue',
+                fillOpacity: 0.25,
+                radius: 500
+            }).addTo(map);
+            
+            //Bostom MA
+             var marker = L.marker([42.3467, -71.0972]).addTo(map);
+            marker.bindPopup("Fenway Park | March 18, 2025")
+            var circle = L.circle([42.3467, -71.0972], {
+                color: 'blue',
+                fillColor: 'blue',
+                fillOpacity: 0.25,
+                radius: 500
+            }).addTo(map);
+
+            //Nashville TN
+              var marker = L.marker([36.1615, -86.7784]).addTo(map);
+            marker.bindPopup("The Ryman Auditorium | March 25, 2025")
+            var circle = L.circle([36.1615, -86.7784], {
+                color: 'blue',
+                fillColor: 'blue',
+                fillOpacity: 0.25,
+                radius: 500
+            }).addTo(map);
+
+            // Chicago
+             var marker = L.marker([41.8807, -87.6742]).addTo(map);
+            marker.bindPopup("United Center | March 25, 2025")
+            var circle = L.circle([41.8807, -87.6742], {
+                color: 'blue',
+                fillColor: 'blue',
+                fillOpacity: 0.25,
+                radius: 500
+            }).addTo(map);
+            
+            //Colorado
+             var marker = L.marker([39.6654, -105.2058]).addTo(map);
+            marker.bindPopup("Red Rocks Amphitheatre | April 4, 2025")
+            var circle = L.circle([39.6654, -105.2058], {
+                color: 'blue',
+                fillColor: 'blue',
+                fillOpacity: 0.25,
+                radius: 500
+            }).addTo(map);
+            
+            //Vegas
+             var marker = L.marker([36.1023, -115.1784
+]).addTo(map);
+            marker.bindPopup("T-Mobile Arena | April 14, 2025")
+            var circle = L.circle([36.1023, -115.1784
+], {
+                color: 'blue',
+                fillColor: 'blue',
+                fillOpacity: 0.25,
+                radius: 500
+            }).addTo(map);
+
+
+            //CA
+             var marker = L.marker([34.1122, -118.3391]).addTo(map);
+            marker.bindPopup("Hollywood Bowl | April 18, 2025")
+            var circle = L.circle([34.1122, -118.3391], {
+                color: 'blue',
+                fillColor: 'blue',
+                fillOpacity: 0.25,
+                radius: 500
+            }).addTo(map);
+            
+            //disney CA
+             var marker = L.marker([34.0554, -118.2498]).addTo(map);
+            marker.bindPopup("The Ryman Auditorium | March 25, 2025")
+            var circle = L.circle([34.0554, -118.2498], {
+                color: 'blue',
+                fillColor: 'blue',
+                fillOpacity: 0.25,
+                radius: 500
+            }).addTo(map);
+
+            //SF CA
+             var marker = L.marker([37.768, -122.3877]).addTo(map);
+            marker.bindPopup("Chase Center | April 25, 2025")
+            var circle = L.circle([37.768, -122.3877], {
+                color: 'blue',
+                fillColor: 'blue',
+                fillOpacity: 0.25,
+                radius: 500
+            }).addTo(map);
+            
+
+
+            map.on('click', onMapClick);
+        });
+    </script>
+</body>
+
+</html>
