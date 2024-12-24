@@ -4,7 +4,7 @@ SI = Suggested Idea for uniquness
 bpa-band-7f7v.vercel.app
 
 Design:
-    -Chalky idea 
+    -Chalky idea ✅
 About: //Aryan 
     -Description of the band MD
     -Profiles with for each member (steal from wwb.org) MD
@@ -12,20 +12,23 @@ About: //Aryan
     -How the band got started (timeline?) MD
 Tour Dates: //Aryan
     -Schedule of dates/locations MD✅
-    -Online ticket purchasing MD 
+    -Online ticket purchasing MD ✅
+    -POS system
     -https://leafletjs.com/ - Interactive Map SD ✅
-        -Add 
-    -Interactive vynils to view all albums (take them to merch page) MD
+        -Embed link in map to each specific ticket option
+    -Interactive vynils to view all albums (take them to merch page) MD 
+        -Another page with only vinyls from ticket.html?
     -Spotify HTML Embed for different cities
 Merch: //Garrett
     -Band Merchandise to sell MD
+        -Created Merch.html just add to it ~as
     -create a seperate page MD
     -multiple payment options MD 
     -create designs MD
     -Lottery system where buying merch can get you tour tickets? SI
     - Template with accesories, aparel, and music to buy MD
 Contact Us: //Garrett
-    -Booking link (IDK what this means) MD
+    -Booking link (IDK what this means) MD ✅
     -Email Link (opens outlook?) MD
     -Customer Service Link (A.I.? SI) MD
 Other Ideas: //Aryan

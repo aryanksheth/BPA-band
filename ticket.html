@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPA Thing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <nav>
+                <a href="#" class="nav-logo"></a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="tour.html" class="active">Tour - 2025</a></li>
+                    <li><a href="merch.html" class="active">Merch</a></li>
+                    <li><a href="#contact" class="active">Contact</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+        <div class="background-image">
+            <div class="@font-face">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="ticket-container">
+            <h2>Purchase Tickets</h2>
+                <form id="ticket-form" action="payment.html" method="POST">
+                <label for="concert-venue">Select Concert Venue:</label>
+                <select id="concert-venue" name="concert-venue">
+                    <option value="100">Madison Square Garden (New York, NY) - March 15, 2025</option>
+                    <option value="90">Fenway Park (Boston, MA) - March 18, 2025</option>
+                    <option value="80">The Ryman Auditorium (Nashville, TN) - March 25, 2025</option>
+                    <option value="85">United Center (Chicago, IL) - March 28, 2025</option>
+                    <option value="95">U.S. Bank Stadium (Minneapolis, MN) - March 31, 2025</option>
+                    <option value="70">Red Rocks Amphitheatre (Morrison, CO) - April 4, 2025</option>
+                    <option value="80">Austin City Limits Live at The Moody Theater (Austin, TX) - April 8, 2025
+                    </option>
+                    <option value="100">T-Mobile Arena (Las Vegas, NV) - April 14, 2025</option>
+                    <option value="90">Hollywood Bowl (Los Angeles, CA) - April 18, 2025</option>
+                    <option value="95">Walt Disney Concert Hall (Los Angeles, CA) - April 21, 2025</option>
+                    <option value="100">Chase Center (San Francisco, CA) - April 25, 2025</option>
+                </select>
+
+                <label for="seat-category">Select Seat Category:</label>
+                <select id="seat-category" name="seat-category">
+                    <option value="1">General Admission</option>
+                    <option value="1.5">VIP</option>
+                    <option value="2">Front Row</option>
+                </select>
+
+                <label for="ticket-quantity">Number of Tickets:</label>
+                <input type="number" id="ticket-quantity" name="ticket-quantity" min="1" value="1">
+                <p>Total Price: $<span id="total-price">100</span></p>
+                <button type="submit">Proceed to Payment</button>
+            </form>
+        </div>
+
+        <div class="payment-container" style="display: none;">
+            <h2>Payment Page</h2>
+            <p>Total Price: $<span id="payment-price"></span></p>
+            <!-- Payment form or integration goes here -->
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const concertVenue = document.getElementById('concert-venue');
+            const seatCategory = document.getElementById('seat-category');
+            const ticketQuantity = document.getElementById('ticket-quantity');
+            const totalPrice = document.getElementById('total-price');
+
+            function updateTotalPrice() {
+                const venuePrice = parseInt(concertVenue.value);
+                const seatMultiplier = parseFloat(seatCategory.value);
+                const quantity = parseInt(ticketQuantity.value) || 0;
+                totalPrice.textContent = (venuePrice * seatMultiplier * quantity).toFixed(2);
+            }
+
+            // Update total price when venue, seat category, or quantity changes
+            concertVenue.addEventListener('change', updateTotalPrice);
+            seatCategory.addEventListener('change', updateTotalPrice);
+            ticketQuantity.addEventListener('input', updateTotalPrice);
+
+            // Handle form submission
+            const form = document.getElementById('ticket-form');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                // Hide the ticket form and show the payment page
+                document.querySelector('.ticket-container').style.display = 'none';
+                document.querySelector('.payment-container').style.display = 'block';
+                const venuePrice = parseInt(concertVenue.value);
+                const seatMultiplier = parseFloat(seatCategory.value);
+                const quantity = parseInt(ticketQuantity.value) || 0;
+                const total = (venuePrice * seatMultiplier * quantity).toFixed(2);
+                document.getElementById('payment-price').textContent = total;
+                  window.location.href = `payment.html?totalPrice=${total}`;
+            });
+
+            // Initialize the total price
+            updateTotalPrice();
+        });
+    </script>
+
+    </main>
+    <!--TODO-->
+</body>
+
+</html>
