@@ -87,24 +87,20 @@
                 totalPrice.textContent = (venuePrice * seatMultiplier * quantity).toFixed(2);
             }
 
-            // Update total price when venue, seat category, or quantity changes
             concertVenue.addEventListener('change', updateTotalPrice);
             seatCategory.addEventListener('change', updateTotalPrice);
             ticketQuantity.addEventListener('input', updateTotalPrice);
 
-            // Handle form submission
             const form = document.getElementById('ticket-form');
             form.addEventListener('submit', function (event) {
-                event.preventDefault();
-                // Hide the ticket form and show the payment page
-                document.querySelector('.ticket-container').style.display = 'none';
-                document.querySelector('.payment-container').style.display = 'block';
+                event.preventDefault(); // Prevent default form submission
                 const venuePrice = parseInt(concertVenue.value);
                 const seatMultiplier = parseFloat(seatCategory.value);
                 const quantity = parseInt(ticketQuantity.value) || 0;
                 const total = (venuePrice * seatMultiplier * quantity).toFixed(2);
-                document.getElementById('payment-price').textContent = total;
-                  window.location.href = `payment.html?totalPrice=${total}`;
+
+                // Redirect to payment.html with the total price as a query parameter
+                window.location.href = `payment.html?totalPrice=${total}`;
             });
 
             // Initialize the total price

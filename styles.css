@@ -30,6 +30,10 @@ h1-tour{
   font-family: 'Grooved';
   src: url('gro-ov-ed-font/GroovedPersonalUseRegular-9Y350.ttf') format('truetype');
 }
+.right-image{
+        position: relative;
+        height: 50%;
+}
  nav {
       background-color: #333;
       display: flex;

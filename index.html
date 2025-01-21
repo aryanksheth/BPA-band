@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BPA Thing</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="carasouel.css">
+    <style>
+        .right-image {
+            margin-right: 100px;
+        }
+    </style>
 </head>
+
 <body>
-    
     <header class="main-header">
         <div class="container">
             <nav>
                 <a href="#" class="nav-logo"></a>
                 <ul class="nav-menu">
-                    <li><a href="#home" class="">Home</a></li>
+                    <li><a href="#home">Home</a></li>
                     <li><a href="tour.html" class="active">Tour - 2025</a></li>
                     <li><a href="merch.html" class="active">Merch</a></li>
                     <li><a href="#contact" class="active">Contact</a></li>
@@ -25,13 +34,103 @@
                 </div>
             </nav>
         </div>
-        <div class="background-image">
-            <div class="@font-face">
-                <h1>WELCOME TO STAGE FRIGHT</h1>
-            </div>
-        </div>
     </header>
+<section class="carousel" aria-label="Gallery">
+    <ol class="carousel__viewport">
+        <li id="carousel__slide1" class="carousel__slide">
+            <div class="carousel__snapper">
+                <a href="#carousel__slide5" class="carousel__prev">Go to last slide</a>
+                <a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
+            </div>
+            <img src="IMG_2601.jpeg" alt="Slide 1" class="carousel-image">
+        </li>
+        <li id="carousel__slide2" class="carousel__slide">
+            <div class="carousel__snapper"></div>
+            <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
+            <a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
+            <img src="IMG_4742.jpeg" alt="Slide 2" class="carousel-image">
+        </li>
+        <li id="carousel__slide3" class="carousel__slide">
+            <div class="carousel__snapper"></div>
+            <a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a>
+            <a href="#carousel__slide4" class="carousel__next">Go to next slide</a>
+            <img src="IMG_4745.jpeg" alt="Slide 3" class="carousel-image">
+        </li>
+        <li id="carousel__slide4"  class="carousel__slide">
+            <div class="carousel__snapper"></div>
+            <a href="#carousel__slide3" class="carousel__prev">Go to previous slide</a>
+            <a href="#carousel__slide5" class="carousel__next">Go to next slide</a>
+            <img src="IMG_4748.jpeg" alt="Slide 4" class="carousel-image">
+        </li>
+        <li id="carousel__slide5" class="carousel__slide">
+            <div class="carousel__snapper"></div>
+            <a href="#carousel__slide4" class="carousel__prev">Go to previous slide</a>
+            <a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
+            <img src="IMG_4973.jpeg" alt="Slide 5" class="carousel-image">
+        </li>
+    </ol>
+    <aside class="carousel__navigation">
+        <ol class="carousel__navigation-list">
+            <li class="carousel__navigation-item">
+                <a href="#carousel__slide1" class="carousel__navigation-button">Go to slide 1</a>
+            </li>
+            <li class="carousel__navigation-item">
+                <a href="#carousel__slide2" class="carousel__navigation-button">Go to slide 2</a>
+            </li>
+            <li class="carousel__navigation-item">
+                <a href="#carousel__slide3" class="carousel__navigation-button">Go to slide 3</a>
+            </li>
+            <li class="carousel__navigation-item">
+                <a href="#carousel__slide4" class="carousel__navigation-button">Go to slide 4</a>
+            </li>
+            <li class="carousel__navigation-item">
+                <a href="#carousel__slide5" class="carousel__navigation-button">Go to slide 5</a>
+            </li>
+        </ol>
+    </aside>
+</section>
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+        // Handle click for next slide
+        const nextButtons = document.querySelectorAll(".carousel__next");
+        nextButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                let currentSlide = document.querySelector(".carousel__slide:focus");
+                let nextSlide = currentSlide.nextElementSibling;
 
-    <!--TODO-->
+                if (!nextSlide) {
+                    // If we're at the last slide, go to the first one
+                    nextSlide = document.querySelector(".carousel__slide:first-child");
+                }
+
+                currentSlide.classList.remove("active");
+                nextSlide.classList.add("active");
+                nextSlide.focus();
+            });
+        });
+
+        // Handle click for previous slide
+        const prevButtons = document.querySelectorAll(".carousel__prev");
+        prevButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                let currentSlide = document.querySelector(".carousel__slide:focus");
+                let prevSlide = currentSlide.previousElementSibling;
+
+                if (!prevSlide) {
+                    // If we're at the first slide, go to the last one
+                    prevSlide = document.querySelector(".carousel__slide:last-child");
+                }
+
+                currentSlide.classList.remove("active");
+                prevSlide.classList.add("active");
+                prevSlide.focus();
+            });
+        });
+    });
+
+</script>
+
+
 </body>
+
 </html>
