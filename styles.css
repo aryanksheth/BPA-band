@@ -4,7 +4,7 @@ body {
             background-image: url('chalkboard-1337809.jpg'); 
 
             background-size: cover; 
-            background-repeat: no-repeat; 
+            background-repeat: repeat; 
              background: linear-gradient(to bottom, #3D1B4F);
             background-position: center center; 
             height: 100vh; 

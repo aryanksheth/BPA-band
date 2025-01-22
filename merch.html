@@ -1,37 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BPA Thing</title>
+    <title>Stage-Fright Merch</title>
     <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    
-    <header class="main-header">
-        <div class="container">
-            <nav>
-                <a href="#" class="nav-logo"></a>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="">Home</a></li>
-                    <li><a href="tour.html" class="active">Tour - 2025</a></li>
-                    <li><a href="merch.html" class="active">Merch</a></li>
-                    <li><a href="#contact" class="active">Contact</a></li>
-                </ul>
-                <div class="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-        <div class="background-image">
-            <div class="@font-face">
-                <h1>WELCOME TO STAGE FRIGHT</h1>
-            </div>
-        </div>
-    </header>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-    <!--TODO-->
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .product {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    flex: 1 1 calc(25% - 20px); /* Adjust width and spacing */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #cart-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        #cart-modal h2 {
+            margin-top: 0;
+        }
+
+        #cart-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        #cart-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .close-cart {
+            background-color: #f44336;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .proceed-payment {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .cart-total {
+            font-weight: bold;
+        }
+        .lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+}
+
+.lightbox.active {
+    display: flex;
+}
+    </style>
+</head>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const lightbox = document.createElement("div");
+            lightbox.classList.add("lightbox");
+            document.body.appendChild(lightbox);
+
+            const images = document.querySelectorAll(".product img");
+        images.forEach(img => {
+                img.addEventListener("click", () => {
+                    lightbox.classList.add("active");
+                    const imgElement = document.createElement("img");
+                    imgElement.src = img.src;
+                    lightbox.innerHTML = ""; // Clear previous content
+                    lightbox.appendChild(imgElement);
+                });
+        });
+
+        lightbox.addEventListener("click", () => {
+                lightbox.classList.remove("active");
+        });
+    });
+
+</script>
+<header>
+    <h2>Welcome to Stage-Fright Merch</h2>
+</header>
+
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Contact</a>
+        <a href="#" onclick="toggleCart()">Cart</a>
+    </nav>
+    <main>
+        <div class="product-list">
+            <div class="product">
+                <img src="Screenshot 2025-01-22 110319.png" alt="Product 1">
+                <h3>Stage Fright Sweater</h3>
+                <p>$45.00</p>
+                <button onclick="addToCart('Stage Fright Sweater', 45)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Screenshot 2025-01-22 110532.png" alt="Product 2">
+                <h3>Stage Fright T-Shirt</h3>
+                <p>$20.00</p>
+                <button onclick="addToCart('Stage Fright T-Shirt', 20)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Screenshot 2025-01-22 110708.png" alt="Product 3">
+                <h3>Stage Fright Hoodie</h3>
+                <p>$55.00</p>
+                <button onclick="addToCart('Stage Fright Hoodie', 55)">Add to Cart</button>
+            </div>
+
+
+
+            <div class="product-list">
+            <div class="product">
+                <img src="Screenshot 2025-01-22 112507.png" alt="Product 5">
+                <h3>Best of Stage-Fright Vinyl</h3>
+                <p>$110.00</p>
+                <button onclick="addToCart('Stage Fright Vinyl', 110)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Fear.E.P" alt="Product 4">
+                <h3>Fear E.P. CD</h3>
+                <p>$30.00</p>
+                <button onclick="addToCart('Fear CD', 30)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="Disaster.png" alt="Product 4">
+                    <h3>Disaster E.P. CD</h3>
+                    <p>$35.00</p>
+                    <button onclick="addToCart('Disaster CD', 35)">Add to Cart</button>
+                </div>
+        </div>
+    </main>
+    <footer>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-overlay"></div>
+    <div id="cart-modal" style="color: black;">
+        <h2>Your Cart</h2>
+        <button class="close-cart" onclick="toggleCart()">Close</button>
+        <div id="cart-items"></div>
+        <p class="cart-total">Total: $<span id="cart-total">0</span></p>
+        <button class="proceed-payment" onclick="proceedToPayment()">Proceed to Payment</button>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            total += price;
+            alert(`${name} added to cart!`);
+        }
+
+        function toggleCart() {
+            const cartModal = document.getElementById('cart-modal');
+            const cartOverlay = document.getElementById('cart-overlay');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            const isDisplayed = cartModal.style.display === 'block';
+            cartModal.style.display = isDisplayed ? 'none' : 'block';
+            cartOverlay.style.display = isDisplayed ? 'none' : 'block';
+
+            if (!isDisplayed) {
+                cartItems.innerHTML = cart.map(item => `<p>${item.name} - $${item.price.toFixed(2)}</p>`).join('');
+                cartTotal.textContent = total.toFixed(2);
+            }
+        }
+
+        function proceedToPayment() {
+            if (cart.length === 0) {
+                alert("Your cart is empty. Add items to proceed!");
+                return;
+            }
+            window.location.href = `payment.html?totalPrice=${total.toFixed(2)}`;
+        }
+    </script>
 </body>
+
 </html>
