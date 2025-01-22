@@ -7,6 +7,7 @@
     <title>BPA Thing</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="vinyl.css">
+    <link rel="stylesheet" href="navbar.css">
 
     <!-- Leaflet Map API -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -16,10 +17,11 @@
 
     <style>
         #map {
-            height: 400px;
-            width: 40%;
+            position: relative;
+            height: 500px;
+            width: 50%;
             margin-left: 50px;
-            margin-top: -250px;
+            margin-top: 50px;
         }
 
         .background-image {
@@ -29,40 +31,35 @@
         }
         .leaflet-text{
             position: relative;
-            top: -300px;
-            margin-right: 1000px;
+            top: px;
+            margin-right: 800px;
         }
         .vinyl-txt{
             position: relative;
-            top: -300px;
-            margin-left: 650px;
+            top: 50px;
+            margin-left: 825px;
             font: Grooved;
         }
         #vinyl-container{
-             margin-left: 50px;
+             margin-left: 100px;
         }
     </style>
 </head>
 
 <body>
-    <header class="main-header">
+    <header class="navbar">
         <div class="container">
-            <nav>
-                <a href="#" class="nav-logo"><img src="logo.png" alt=""></a>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="tour.html" class="">Tour - 2025</a></li>
-                    <li><a href="merch.html" class="active">Merch</a></li>
-                    <li><a href="#contact" class="active">Contact</a></li>
-                </ul>
-                <div class="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
+            <div class="logo">Stage-Fright</div>
+            <button class="nav-toggle">
+                <span>☰</span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tour.html" class="active">Tour</a></li>
+                <li><a href="merch.html">Merchandise</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
-        <div class="background-image"></div>
     </header>
     <div class="vinyl-txt">
         <div class="@font-face">
@@ -90,128 +87,146 @@
     <div id="map">
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var map = L.map('map').setView([40.647304, -97.558594], 4);
-           
-            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(map);
-           
-            var popup = L.popup();
-          function onMapClick(e) {
-                popup
-                    .setLatLng(e.latlng)
-                    .setContent("You clicked the map at " + e.latlng.toString())
-                    .openOn(map);
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var map = L.map('map').setView([40.647304, -97.558594], 4);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        var cart = []; // Array to store cart items
+
+        // Function to handle "Add to Cart"
+        function addToCart(stadium) {
+            window.location.href = `ticket.html`;
+        }
+
+        // Function to create the popup content
+       function createPopupContent(stadium, date, imgUrl) {
+            const container = document.createElement("div");
+            container.style.textAlign = "center";
+
+            const title = document.createElement("h3");
+            title.textContent = stadium;
+
+            const dateParagraph = document.createElement("p");
+            dateParagraph.textContent = date;
+
+            const image = document.createElement("img");
+            image.src = imgUrl;
+            image.alt = stadium;
+            image.style.width = "300px";
+            image.style.height = "auto";
+            image.style.borderRadius = "5px";
+
+            const button = document.createElement("button");
+            button.textContent = "Add to Cart";
+            button.style.marginTop = "10px";
+
+            // Add event listener to the button
+            button.addEventListener("click", addToCart);
+
+            container.appendChild(title);
+            container.appendChild(dateParagraph);
+            container.appendChild(image);
+            container.appendChild(button);
+
+            return container;
+        }
+
+
+        // Locations and markers
+        const locations = [
+            {
+                lat: 44.97369161057962,
+                lon: -93.25727992599022,
+                stadium: "US Bank Stadium",
+                date: "March 31, 2025",
+                imgUrl: "Map-Images/UT5KARSCLYJITG76F5OMHM55MA.jpg",
+            },
+            {
+                lat: 40.7505,
+                lon: -73.9934,
+                stadium: "Madison Square Garden",
+                date: "March 15, 2025",
+                imgUrl: "Map-Images/msg-arena-528x297.jpg",
+            },
+            {
+                lat: 42.3467,
+                lon: -71.0972,
+                stadium: "Fenway Park",
+                date: "March 18, 2025",
+                imgUrl: "Map-Images/fenway.jpeg",
+                
+            },
+            {
+                lat: 36.1615,
+                lon: -86.7784,
+                stadium: "The Ryman Auditorium",
+                date: "March 25, 2025",
+                imgUrl: "Map-Images/ryman.jpg",
+            },
+            {
+                lat: 41.8807,
+                lon: -87.6742,
+                stadium: "United Center",
+                date: "March 25, 2025",
+                imgUrl: "Map-Images/united.jpeg",
+            },
+            {
+                lat: 39.6654,
+                lon: -105.2058,
+                stadium: "Red Rocks Amphitheatre",
+                date: "April 4, 2025",
+                imgUrl: "Map-Images/redrocks.jpeg",
+            },
+            {
+                lat: 36.1023,
+                lon: -115.1784,
+                stadium: "T-Mobile Arena",
+                date: "April 14, 2025",
+                imgUrl: "Map-Images/tmobile.jpeg",
+            },
+            {
+                lat: 34.1122,
+                lon: -118.3391,
+                stadium: "Hollywood Bowl",
+                date: "April 18, 2025",
+                imgUrl: "Map-Images/hollwood.jpeg",
+            },
+            {
+                lat: 34.0554,
+                lon: -118.2498,
+                stadium: "Disney CA",
+                date: "March 25, 2025",
+                imgUrl: "Map-Images/disney.jpeg",
+            },
+            {
+                lat: 37.768,
+                lon: -122.3877,
+                stadium: "Chase Center",
+                date: "April 25, 2025",
+                imgUrl: "Map-Images/chase-ceneter.jpeg",
             }
-             var marker = L.marker([44.97369161057962, -93.25727992599022]).addTo(map);
-            marker.bindPopup("US Bank Stadium | March 31th 2025")
-             var circle = L.circle([44.97369161057962, -93.25727992599022], {
-                color: 'blue',
-                fillColor: 'blue',
-                fillOpacity: 0.25,
-                radius: 500
-            }).addTo(map);
+        ];
 
-            //new york
-             var marker = L.marker([40.7505, -73.9934]).addTo(map);
-            marker.bindPopup("Madison Square Garden | March 15, 2025")
-            var circle = L.circle([40.7505, -73.9934], {
-                color: 'blue',
-                fillColor: 'blue',
-                fillOpacity: 0.25,
-                radius: 500
-            }).addTo(map);
-            
-            //Bostom MA
-             var marker = L.marker([42.3467, -71.0972]).addTo(map);
-            marker.bindPopup("Fenway Park | March 18, 2025")
-            var circle = L.circle([42.3467, -71.0972], {
-                color: 'blue',
-                fillColor: 'blue',
-                fillOpacity: 0.25,
-                radius: 500
-            }).addTo(map);
+       // Create markers for each location
+        locations.forEach(function (location) {
+            var marker = L.marker([location.lat, location.lon]).addTo(map);
+            marker.bindPopup(createPopupContent(location.stadium, location.date, location.imgUrl));
 
-            //Nashville TN
-              var marker = L.marker([36.1615, -86.7784]).addTo(map);
-            marker.bindPopup("The Ryman Auditorium | March 25, 2025")
-            var circle = L.circle([36.1615, -86.7784], {
+            var circle = L.circle([location.lat, location.lon], {
                 color: 'blue',
                 fillColor: 'blue',
                 fillOpacity: 0.25,
                 radius: 500
             }).addTo(map);
-
-            // Chicago
-             var marker = L.marker([41.8807, -87.6742]).addTo(map);
-            marker.bindPopup("United Center | March 25, 2025")
-            var circle = L.circle([41.8807, -87.6742], {
-                color: 'blue',
-                fillColor: 'blue',
-                fillOpacity: 0.25,
-                radius: 500
-            }).addTo(map);
-            
-            //Colorado
-             var marker = L.marker([39.6654, -105.2058]).addTo(map);
-            marker.bindPopup("Red Rocks Amphitheatre | April 4, 2025")
-            var circle = L.circle([39.6654, -105.2058], {
-                color: 'blue',
-                fillColor: 'blue',
-                fillOpacity: 0.25,
-                radius: 500
-            }).addTo(map);
-            
-            //Vegas
-             var marker = L.marker([36.1023, -115.1784
-]).addTo(map);
-            marker.bindPopup("T-Mobile Arena | April 14, 2025")
-            var circle = L.circle([36.1023, -115.1784
-], {
-                color: 'blue',
-                fillColor: 'blue',
-                fillOpacity: 0.25,
-                radius: 500
-            }).addTo(map);
-
-
-            //CA
-             var marker = L.marker([34.1122, -118.3391]).addTo(map);
-            marker.bindPopup("Hollywood Bowl | April 18, 2025")
-            var circle = L.circle([34.1122, -118.3391], {
-                color: 'blue',
-                fillColor: 'blue',
-                fillOpacity: 0.25,
-                radius: 500
-            }).addTo(map);
-            
-            //disney CA
-             var marker = L.marker([34.0554, -118.2498]).addTo(map);
-            marker.bindPopup("The Ryman Auditorium | March 25, 2025")
-            var circle = L.circle([34.0554, -118.2498], {
-                color: 'blue',
-                fillColor: 'blue',
-                fillOpacity: 0.25,
-                radius: 500
-            }).addTo(map);
-
-            //SF CA
-             var marker = L.marker([37.768, -122.3877]).addTo(map);
-            marker.bindPopup("Chase Center | April 25, 2025")
-            var circle = L.circle([37.768, -122.3877], {
-                color: 'blue',
-                fillColor: 'blue',
-                fillOpacity: 0.25,
-                radius: 500
-            }).addTo(map);
-            
-
-
-            map.on('click', onMapClick);
         });
+
+     
+    });
     </script>
 </body>
 

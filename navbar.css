@@ -1,0 +1,127 @@
+
+
+        .navbar {
+            position: flex;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1a1a1a;
+            padding: 15px;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+       @font-face {
+    font-family: 'HelpMe';
+    src: url('help-me/HelpMe.ttf') format('truetype');
+}
+
+/* Font face for Grooved */
+@font-face {
+    font-family: 'Grooved';
+    src: url('gro-ov-ed-font/GroovedPersonalUseRegular-9Y350.ttf') format('truetype');
+}
+        
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #c1c1c1;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-family: 'HelpMe', serif;
+        }
+
+        .navbar .nav-menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem;
+            font-family: 'Grooved';
+        }
+
+        .navbar .nav-menu li {
+            margin-right: 30px;
+        }
+
+        .navbar .nav-menu li a {
+            color: #eaeaea;
+            font-size: 1.2rem;
+            font-weight: 500;
+            font-family: 'Grooved';
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .nav-menu li a:hover {
+            color: #ff4d4d;
+        }
+
+        .navbar .nav-menu li a:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #ff4d4d;
+            left: 0;
+            bottom: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        .navbar .nav-menu li a:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .navbar .nav-toggle {
+            display: none;
+        }
+
+        /* Mobile menu */
+        @media (max-width: 768px) {
+            .navbar .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background-color: #1a1a1a;
+                padding: 20px;
+                border-top: 2px solid #ff4d4d;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            }
+
+            .navbar .nav-menu li {
+                margin-bottom: 15px;
+            }
+
+            .navbar .nav-toggle {
+                display: block;
+                cursor: pointer;
+                color: #eaeaea;
+                font-size: 2rem;
+                background: none;
+                border: none;
+                padding: 0;
+                transition: all 0.3s ease;
+            }
+
+            .navbar .nav-toggle.active + .nav-menu {
+                display: flex;
+            }
+        }

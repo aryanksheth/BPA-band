@@ -22,7 +22,7 @@
 #album {
   position: absolute;
   top: 27%;
-  left: 50%;
+  left: 55%;
   height: 40vw;
   width: 40%;
   max-height: 65%;
@@ -94,7 +94,7 @@
 #vinyl::before {
   position: absolute;
   top: 2.5%;
-  left: 2.5%;
+  left: 12.5%;
   z-index: 10;
   width: 95%;
   height: 95%;

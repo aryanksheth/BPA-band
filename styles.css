@@ -18,6 +18,7 @@ h1 {
   font-family: 'HelpMe';
   text-align: center;
 }
+
 h1-tour{
   color:white;
   font-family: 'Grooved';
@@ -67,17 +68,14 @@ h1-tour{
       transition: color 0.3s;
     }
 
-    .nav-menu a:hover {
-      color: #00bcd4;
-    }
-
+ 
     .nav-menu .active {
-      border-bottom: 2px solid #00bcd4;
+      border-bottom: 2px solid #ff4d4d;
     }
 
     .nav-toggle {
       display: none;
-      flex-direction: column;
+      flex-direction: column;d
       cursor: pointer;
     }
 

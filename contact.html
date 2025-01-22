@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+       
+
+        .contact-container {
+            position: fixed;
+            top: 150px;
+            left: 500px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 900px;
+            padding: 30px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-container:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-header h1 {
+            font-size: 2.5rem;
+            font-family: Arial;
+            color: #333;
+        }
+        .contact-header p{
+            color: #333;
+            font-size: 1.5rem;
+            font-family: Arial;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #3a86ff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(58, 134, 255, 0.6);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-btn {
+            background-color: #3a86ff;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #2a62c7;
+        }
+
+        .contact-footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+        }
+
+        .contact-footer a {
+            color: #3a86ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">Stage-Fright</div>
+            <button class="nav-toggle">
+                <span>☰</span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html"">Home</a></li>
+                <li><a href="tour.html">Tour</a></li>
+                <li><a href="merch.html">Merchandise</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you! Please fill out the form below.</p>
+        </div>
+        <form class="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="contact-btn">Send Message</button>
+        </form>
+        <div class="contact-footer">
+            <p>Or reach us via <a href="mailto:contact.stagefright@bpa.org">contact.stagefright@bpa.org</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

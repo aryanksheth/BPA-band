@@ -8,129 +8,144 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="carasouel.css">
+    <link rel="stylesheet" href="navbar.css">
+
     <style>
-        .right-image {
-            margin-right: 100px;
+
+        .carousel-container {
+            position: fixed;
+            right: 100px;
+            top: 200px;
+            width: 80%;
+            max-width: 900px;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
         }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: scale(1.1);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            filter: blur(4px);
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            transform: scale(1);
+            filter: blur(0);
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 30px;
+            color: #f5f5f5;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .carousel-caption h3 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .carousel-caption p {
+            margin: 0;
+            font-size: 1rem;
+            font-style: italic;
+        }
+
     </style>
 </head>
 
 <body>
-    <header class="main-header">
+    <header class="navbar">
         <div class="container">
-            <nav>
-                <a href="#" class="nav-logo"></a>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="tour.html" class="active">Tour - 2025</a></li>
-                    <li><a href="merch.html" class="active">Merch</a></li>
-                    <li><a href="#contact" class="active">Contact</a></li>
-                </ul>
-                <div class="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
+            <div class="logo">Stage-Fright</div>
+            <button class="nav-toggle">
+                <span>☰</span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="tour.html">Tour</a></li>
+                <li><a href="merch.html">Merchandise</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </header>
-<section class="carousel" aria-label="Gallery">
-    <ol class="carousel__viewport">
-        <li id="carousel__slide1" class="carousel__slide">
-            <div class="carousel__snapper">
-                <a href="#carousel__slide5" class="carousel__prev">Go to last slide</a>
-                <a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
-            </div>
-            <img src="IMG_2601.jpeg" alt="Slide 1" class="carousel-image">
-        </li>
-        <li id="carousel__slide2" class="carousel__slide">
-            <div class="carousel__snapper"></div>
-            <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
-            <a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
-            <img src="IMG_4742.jpeg" alt="Slide 2" class="carousel-image">
-        </li>
-        <li id="carousel__slide3" class="carousel__slide">
-            <div class="carousel__snapper"></div>
-            <a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a>
-            <a href="#carousel__slide4" class="carousel__next">Go to next slide</a>
-            <img src="IMG_4745.jpeg" alt="Slide 3" class="carousel-image">
-        </li>
-        <li id="carousel__slide4"  class="carousel__slide">
-            <div class="carousel__snapper"></div>
-            <a href="#carousel__slide3" class="carousel__prev">Go to previous slide</a>
-            <a href="#carousel__slide5" class="carousel__next">Go to next slide</a>
-            <img src="IMG_4748.jpeg" alt="Slide 4" class="carousel-image">
-        </li>
-        <li id="carousel__slide5" class="carousel__slide">
-            <div class="carousel__snapper"></div>
-            <a href="#carousel__slide4" class="carousel__prev">Go to previous slide</a>
-            <a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
-            <img src="IMG_4973.jpeg" alt="Slide 5" class="carousel-image">
-        </li>
-    </ol>
-    <aside class="carousel__navigation">
-        <ol class="carousel__navigation-list">
-            <li class="carousel__navigation-item">
-                <a href="#carousel__slide1" class="carousel__navigation-button">Go to slide 1</a>
-            </li>
-            <li class="carousel__navigation-item">
-                <a href="#carousel__slide2" class="carousel__navigation-button">Go to slide 2</a>
-            </li>
-            <li class="carousel__navigation-item">
-                <a href="#carousel__slide3" class="carousel__navigation-button">Go to slide 3</a>
-            </li>
-            <li class="carousel__navigation-item">
-                <a href="#carousel__slide4" class="carousel__navigation-button">Go to slide 4</a>
-            </li>
-            <li class="carousel__navigation-item">
-                <a href="#carousel__slide5" class="carousel__navigation-button">Go to slide 5</a>
-            </li>
-        </ol>
-    </aside>
-</section>
-<script>
-   document.addEventListener("DOMContentLoaded", function () {
-        // Handle click for next slide
-        const nextButtons = document.querySelectorAll(".carousel__next");
-        nextButtons.forEach(button => {
-            button.addEventListener("click", function () {
-                let currentSlide = document.querySelector(".carousel__slide:focus");
-                let nextSlide = currentSlide.nextElementSibling;
-
-                if (!nextSlide) {
-                    // If we're at the last slide, go to the first one
-                    nextSlide = document.querySelector(".carousel__slide:first-child");
-                }
-
-                currentSlide.classList.remove("active");
-                nextSlide.classList.add("active");
-                nextSlide.focus();
-            });
+    
+    <script>
+        // Mobile toggle menu
+        document.querySelector('.nav-toggle').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.querySelector('.nav-menu').classList.toggle('active');
         });
+    </script>
 
-        // Handle click for previous slide
-        const prevButtons = document.querySelectorAll(".carousel__prev");
-        prevButtons.forEach(button => {
-            button.addEventListener("click", function () {
-                let currentSlide = document.querySelector(".carousel__slide:focus");
-                let prevSlide = currentSlide.previousElementSibling;
+ 
 
-                if (!prevSlide) {
-                    // If we're at the first slide, go to the last one
-                    prevSlide = document.querySelector(".carousel__slide:last-child");
-                }
-
-                currentSlide.classList.remove("active");
-                prevSlide.classList.add("active");
-                prevSlide.focus();
-            });
-        });
-    });
-
-</script>
-
-
+<div class="carousel-container">
+    <div class="carousel-slide active" style="background-image: url('IMG_2601.jpeg');">
+        <div class="carousel-caption">
+            <h3>“Best night of my life!”</h3>
+            <p>- Sarah, after the Minneapolis show</p>
+        </div>
+    </div>
+    <div class="carousel-slide" style="background-image: url('IMG_4742.jpeg');">
+        <div class="carousel-caption">
+            <h3>“This band just keeps getting better!”</h3>
+            <p>- Mike on the forum</p>
+        </div>
+    </div>
+    <div class="carousel-slide" style="background-image: url('IMG_4745.jpeg');">
+        <div class="carousel-caption">
+            <h3>“Their energy was unmatched!”</h3>
+            <p>- Rachel from New York</p>
+        </div>
+    </div>
+    <div class="carousel-slide" style="background-image: url('IMG_4748.jpeg');">
+        <div class="carousel-caption">
+            <h3>“Truly a magical experience.”</h3>
+            <p>- Jacob via Twitter</p>
+        </div>
+    </div>
+    <div class="carousel-slide" style="background-image: url('IMG_4973.jpeg');">
+        <div class="carousel-caption">
+            <h3>“I’ll never forget this concert!”</h3>
+            <p>- Emily, first-time attendee</p>
+        </div>
+    </div>
+</div>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const slides = document.querySelectorAll(".carousel-slide");
+        let currentIndex = 0;
+
+        function changeSlide() {
+            slides[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add("active");
+        }
+
+        // Automatically change slides every 5 seconds
+        setInterval(changeSlide, 5000);
+    });
+</script>
 
 </html>
