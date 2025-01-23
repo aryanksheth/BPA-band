@@ -18,6 +18,11 @@ h1 {
   font-family: 'HelpMe';
   text-align: center;
 }
+h2{
+  color: white;
+  font-family: 'Grooved';
+  font-size: 3rem;
+}
 
 h1-tour{
   color:white;

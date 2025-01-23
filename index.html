@@ -13,6 +13,7 @@
     <style>
 
         .carousel-container {
+            flex: 2;
             position: fixed;
             right: 100px;
             top: 200px;
@@ -69,6 +70,82 @@
             font-size: 1rem;
             font-style: italic;
         }
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  max-width: 20%;
+  margin-bottom: 16px;
+
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 50%;
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+.about-section {
+    flex: 1; /* Make the About Us section take up one part of the space */
+    max-width: 40%; /* Ensure it doesn't stretch too wide */
+    padding: 20px;
+    text-align: left; /* Align text to the left */
+    background-color: #474e5d; /* Retain the original color */
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
     </style>
 </head>
@@ -148,5 +225,65 @@
         setInterval(changeSlide, 5000);
     });
 </script>
+
+
+
+<div class="flex-container">
+
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+            <div class="container">
+                <h2>Jane Doe</h2>
+                <p class="title">CEO & Founder</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>jane@example.com</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+            <div class="container">
+                <h2>Mike Ross</h2>
+                <p class="title">Art Director</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>mike@example.com</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- New Row for John Doe -->
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+            <div class="container">
+                <h2>John Doe</h2>
+                <p class="title">Designer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>john@example.com</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+<div class="column">
+    <div class="card">
+        <img src="drum.jpg" alt="Mike" style="width:100%">
+        <div class="container">
+            <h2>Skull Beat</h2>
+            <p class="title">Drummer</p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
 
 </html>
