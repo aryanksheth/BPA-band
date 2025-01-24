@@ -204,20 +204,44 @@
                 <img src="Screenshot 2025-01-22 110319.png" alt="Product 1">
                 <h3>Stage Fright Sweater</h3>
                 <p>$45.00</p>
-                <button onclick="addToCart('Stage Fright Sweater', 45)">Add to Cart</button>
-            </div>
+                <label for="sweater-size">Size:</label>
+                <select id="sweater-size">
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    <option value="XL">XL</option>
+                </select>
+                <button onclick="addToCart('Stage Fright Sweater', 45, document.getElementById('sweater-size').value)">Add to
+                    Cart</button>
+                </div>
             <div class="product">
                 <img src="Screenshot 2025-01-22 110532.png" alt="Product 2">
                 <h3>Stage Fright T-Shirt</h3>
-                <p>$20.00</p>
-                <button onclick="addToCart('Stage Fright T-Shirt', 20)">Add to Cart</button>
-            </div>
+                <p>$25.00</p>
+                <label for="sweater-size">Size:</label>
+                <select id="sweater-size">
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    <option value="XL">XL</option>
+                </select>
+                <button onclick="addToCart('Stage Fright Sweater', 45, document.getElementById('sweater-size').value)">Add to
+                    Cart</button>
+                </div>
             <div class="product">
                 <img src="Screenshot 2025-01-22 110708.png" alt="Product 3">
                 <h3>Stage Fright Hoodie</h3>
-                <p>$55.00</p>
-                <button onclick="addToCart('Stage Fright Hoodie', 55)">Add to Cart</button>
-            </div>
+                <p>$70.00</p>
+                <label for="sweater-size">Size:</label>
+                <select id="sweater-size">
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    <option value="XL">XL</option>
+                </select>
+                <button onclick="addToCart('Stage Fright Sweater', 45, document.getElementById('sweater-size').value)">Add to
+                    Cart</button>
+                </div>
 
 
 
@@ -260,7 +284,7 @@
         let total = 0;
 
         function addToCart(name, price) {
-            cart.push({ name, price });
+            cart.push({ name, price, });
             total += price;
             alert(`${name} added to cart!`);
         }
