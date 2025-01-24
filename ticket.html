@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BPA Ticket Purchase</title>
+    <title>Stage-Fright Ticket Purchase</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="styles.css">
@@ -125,36 +125,37 @@
                 <option value="95">U.S. Bank Stadium (Minneapolis, MN) - March 31, 2025</option>
                 <option value="70">Red Rocks Amphitheatre (Morrison, CO) - April 4, 2025</option>
                 <option value="80">Austin City Limits Live at The Moody Theater (Austin, TX) - April 8, 2025
-                </option>
-                <option value="100">T-Mobile Arena (Las Vegas, NV) - April 14, 2025</option>
-                <option value="90">Hollywood Bowl (Los Angeles, CA) - April 18, 2025</option>
-                <option value="95">Walt Disney Concert Hall (Los Angeles, CA) - April 21, 2025</option>
-                <option value="100">Chase Center (San Francisco, CA) - April 25, 2025</option>
-                </select>
+                    </option>
+                    <option value="100">T-Mobile Arena (Las Vegas, NV) - April 14, 2025</option>
+                    <option value="90">Hollywood Bowl (Los Angeles, CA) - April 18, 2025</option>
+                    <option value="95">Walt Disney Concert Hall (Los Angeles, CA) - April 21, 2025</option>
+                    <option value="100">Chase Center (San Francisco, CA) - April 25, 2025</option>
+                    </select>
 
-                </select>
+                    </select>
 
-                <label for="seat-category">Select Seat Category:</label>
-                <select id="seat-category" name="seat-category">
-                    <option value="1">General Admission - $1x</option>
-                    <option value="1.5">VIP - $1.5x</option>
-                    <option value="2">Front Row - $2x</option>
-                </select>
+                    <label for="seat-category">Select Seat Category:</label>
+                    <select id="seat-category" name="seat-category">
+                        <option value="1">General Admission - $1x</option>
+                        <option value="1.5">VIP - $1.5x</option>
+                        <option value="2">Front Row - $2x</option>
+                    </select>
 
-                <label for="ticket-quantity">Number of Tickets:</label>
-                <input type="number" id="ticket-quantity" name="ticket-quantity" min="1" value="1">
+                    <label for="ticket-quantity">Number of Tickets:</label>
+                    <input type="number" id="ticket-quantity" name="ticket-quantity" min="1" value="1">
 
-                <p class="total-price">Total Price: $<span id="total-price">100</span></p>
-                <button type="submit">Proceed to Payment</button>
-            </form>
-        </div>
-    </main>
-    <script>
+                    <p class="total-price">Total Price: $<span id="total-price">100</span></p>
+                    <button type="submit">Proceed to Payment</button>
+                </form>
+            </div>
+        </main>
+       <script>
         document.addEventListener('DOMContentLoaded', function () {
             const concertVenue = document.getElementById('concert-venue');
             const seatCategory = document.getElementById('seat-category');
             const ticketQuantity = document.getElementById('ticket-quantity');
             const totalPrice = document.getElementById('total-price');
+            const ticketForm = document.getElementById('ticket-form');
 
             function updateTotalPrice() {
                 const venuePrice = parseInt(concertVenue.value);
@@ -167,10 +168,24 @@
             seatCategory.addEventListener('change', updateTotalPrice);
             ticketQuantity.addEventListener('input', updateTotalPrice);
 
+            // Handle form submission
+            ticketForm.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent the default form submission
+
+                const venuePrice = parseInt(concertVenue.value);
+                const seatMultiplier = parseFloat(seatCategory.value);
+                const quantity = parseInt(ticketQuantity.value) || 0;
+                const total = venuePrice * seatMultiplier * quantity;
+
+                // Redirect to payment.html with totalPrice as a query parameter
+                window.location.href = `payment.html?totalPrice=${total.toFixed(2)}`;
+            });
+
             // Initialize the total price
             updateTotalPrice();
         });
     </script>
+
 </body>
 
 </html>

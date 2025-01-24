@@ -95,7 +95,7 @@ button.is_active span{
     transition: all 0.2s linear;
 }
 
-.container {
+.payment-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,7 +122,7 @@ button.is_active span{
 
 .col .title {
     font-size: 20px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     padding-bottom: 5px;
 }
 
@@ -133,7 +133,7 @@ button.is_active span{
 .col .inputBox label {
     margin-bottom: 10px;
     display: block;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .col .inputBox input,
