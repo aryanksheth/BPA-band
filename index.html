@@ -4,22 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stage-Fright Offical Website</title>
+    <title>Stage-Fright Official Website</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="navbar.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #3D1B4F);
+            color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
+        h1 {
+            color: white;
+            font-family: 'HelpMe';
+            text-align: center;
+        }
+
+        h2 {
+            color: white;
+            font-family: 'Grooved';
+            font-size: 3rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Map-Images/background-stagefright.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #f5f5f5;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            color: #f5f5f5;
+        }
+
+        .hero .btn {
+            background: #881b1a;
+            color: #f5f5f5;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background: #e65a50;
+        }
+
+        /* Carousel */
         .carousel-container {
-            flex: 2;
-            position: absolute;
-            right: 100px;
-            top: 300px;
-            width: 80%;
-            max-width: 900px;
+            width: 100%;
+            max-width: 1000px;
             height: 500px;
+            margin: 30px auto;
+            position: relative;
             overflow: hidden;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
@@ -47,131 +112,184 @@
 
         .carousel-caption {
             position: absolute;
-            bottom: 30px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             background: rgba(0, 0, 0, 0.7);
-            padding: 15px 30px;
+            padding: 10px 20px;
             color: #f5f5f5;
             border-radius: 10px;
-            font-size: 1.2rem;
+            font-size: 1rem;
             text-align: center;
             max-width: 80%;
         }
 
         .carousel-caption h3 {
             margin: 0 0 10px;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: bold;
         }
 
         .carousel-caption p {
             margin: 0;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-style: italic;
         }
 
-html {
-  box-sizing: border-box;
-}
+        /* Slideshow */
+        .slideshow-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+        }
 
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+        .mySlides {
+            display: none;
+        }
 
-.about-section {
-    text-align: center;
-    padding: 50px;
-    background-color: #f4f4f4;
-    margin-bottom: 30px;
-}
+        .mySlides img {
+            width: 100%;
+            border-radius: 14px;
+        }
 
-.about-section h1 {
-    font-size: 2.5em;
-    color: #333;
-}
+        .text {
+            color: #f2f2f2;
+            font-size: 14px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+        }
 
-.about-section p {
-    font-size: 1.2em;
-    color: #555;
-}
+        /* Footer */
+        footer {
+            background: #111;
+            color: #f5f5f5;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
 
-/* Row Styling */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    margin: 0 100px;
-}
+        footer .social-links {
+            margin: 10px 0;
+        }
 
-/* Column Styling */
-.column {
-    flex: 1 1 300px;
-    max-width: 300px;
-    margin: 15px;
-}
+        footer .social-links a {
+            color: #f5f5f5;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
 
-/* Card Styling */
-.card {
-    background-color: #333;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        footer .social-links a:hover {
+            color: #d28a89;
+        }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
+        /* Navbar */
+        .navbar {
+            background-color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+        }
 
-/* Card Image */
-.card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+        .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
 
-/* Card Container */
-.container {
-    padding: 20px;
-    text-align: center;
-}
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
 
-.container h2 {
-    font-size: 1.5em;
-    color: #881b1a;
-    margin: 10px 0;
-}
+        .nav-menu li {
+            margin: 0 0.75rem;
+        }
 
-.container p {
-    color: #ffffff9e;
-    margin: 5px 0;
-}
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
 
-.container .title {
-    font-weight: bold;
-    color: rgb(202, 162, 162)fff9e;
-    margin-bottom: 10px;
-}
+        .nav-menu .active {
+            border-bottom: 2px solid #ff4d4d;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .row {
-        flex-direction: column;
-        align-items: center;
-    }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
 
-    .column {
-        max-width: 90%;
-    }
-}
+        .nav-toggle span {
+            background-color: #fff;
+            height: 3px;
+            width: 25px;
+            margin: 3px 0;
+        }
 
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .carousel-container {
+                height: 200px;
+            }
+
+            .carousel-caption {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+
+            .carousel-caption h3 {
+                font-size: 1rem;
+            }
+
+            .carousel-caption p {
+                font-size: 0.8rem;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Navbar -->
     <header class="navbar">
         <div class="container">
             <div class="logo">Stage-Fright</div>
@@ -179,125 +297,112 @@ html {
                 <span>☰</span>
             </button>
             <ul class="nav-menu">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="tour.html">Tour</a></li>
-            <li><a href="merch.html">Merchandise</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="about.html" >About Us</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="tour.html">Tour</a></li>
+                <li><a href="merch.html">Merchandise</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About Us</a></li>
             </ul>
         </div>
     </header>
-    
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Stage-Fright</h1>
+            <p>Live performances like never seen before.</p>
+            <a href="tour.html" class="btn">Buy Tickets Now</a>
+        </div>
+    </section>
+
+    <!-- Carousel -->
+    <div class="carousel-container">
+        <div class="carousel-slide active" style="background-image: url('IMG_2601.jpeg');">
+            <div class="carousel-caption">
+                <h3>“Best night of my life!”</h3>
+                <p>- Sarah, after the Minneapolis show</p>
+            </div>
+        </div>
+        <div class="carousel-slide" style="background-image: url('IMG_4742.jpeg');">
+            <div class="carousel-caption">
+                <h3>“This band just keeps getting better!”</h3>
+                <p>- Mike on the forum</p>
+            </div>
+        </div>
+        <div class="carousel-slide" style="background-image: url('IMG_4745.jpeg');">
+            <div class="carousel-caption">
+                <h3>“Their energy was unmatched!”</h3>
+                <p>- Rachel from New York</p>
+            </div>
+        </div>
+        <div class="carousel-slide" style="background-image: url('IMG_4748.jpeg');">
+            <div class="carousel-caption">
+                <h3>“Truly a magical experience.”</h3>
+                <p>- Jacob via Twitter</p>
+            </div>
+        </div>
+        <div class="carousel-slide" style="background-image: url('IMG_4973.jpeg');">
+            <div class="carousel-caption">
+                <h3>“I’ll never forget this concert!”</h3>
+                <p>- Emily, first-time attendee</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slideshow -->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="Screenshot 2025-01-22 110319.png" style="width:100%">
+            <div class="text">Stage-Fright Sweater</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="Screenshot 2025-01-22 110532.png" style="width:100%">
+            <div class="text">Stage-Fright T-Shirt</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="Screenshot 2025-01-22 110708.png" style="width:100%">
+            <div class="text">Stage-Fright Hoodie</div>
+        </div>
+    </div>
+
+
     <script>
         // Mobile toggle menu
         document.querySelector('.nav-toggle').addEventListener('click', function () {
             this.classList.toggle('active');
             document.querySelector('.nav-menu').classList.toggle('active');
         });
-    </script>
 
- 
+        // Carousel
+        document.addEventListener("DOMContentLoaded", () => {
+            const slides = document.querySelectorAll(".carousel-slide");
+            let currentIndex = 0;
 
-<div class="carousel-container">
-    <div class="carousel-slide active" style="background-image: url('IMG_2601.jpeg');">
-        <div class="carousel-caption">
-            <h3>“Best night of my life!”</h3>
-            <p>- Sarah, after the Minneapolis show</p>
-        </div>
-    </div>
-    <div class="carousel-slide" style="background-image: url('IMG_4742.jpeg');">
-        <div class="carousel-caption">
-            <h3>“This band just keeps getting better!”</h3>
-            <p>- Mike on the forum</p>
-        </div>
-    </div>
-    <div class="carousel-slide" style="background-image: url('IMG_4745.jpeg');">
-        <div class="carousel-caption">
-            <h3>“Their energy was unmatched!”</h3>
-            <p>- Rachel from New York</p>
-        </div>
-    </div>
-    <div class="carousel-slide" style="background-image: url('IMG_4748.jpeg');">
-        <div class="carousel-caption">
-            <h3>“Truly a magical experience.”</h3>
-            <p>- Jacob via Twitter</p>
-        </div>
-    </div>
-    <div class="carousel-slide" style="background-image: url('IMG_4973.jpeg');">
-        <div class="carousel-caption">
-            <h3>“I’ll never forget this concert!”</h3>
-            <p>- Emily, first-time attendee</p>
-        </div>
-    </div>
-</div>
-</body>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const slides = document.querySelectorAll(".carousel-slide");
-        let currentIndex = 0;
+            function changeSlide() {
+                slides[currentIndex].classList.remove("active");
+                currentIndex = (currentIndex + 1) % slides.length;
+                slides[currentIndex].classList.add("active");
+            }
 
-        function changeSlide() {
-            slides[currentIndex].classList.remove("active");
-            currentIndex = (currentIndex + 1) % slides.length;
-            slides[currentIndex].classList.add("active");
+            setInterval(changeSlide, 5000);
+        });
+
+        // Slideshow
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 5000);
         }
-
-        // Automatically change slides every 5 seconds
-        setInterval(changeSlide, 5000);
-    });
-</script>
-
-
-
-<div class="flex-container">
-
-
-<div class="row">
-    <div class="column">
-        <div class="card">
-            <img src="Map-Images/scream.jpeg" alt="Screamer" style="width:100%">
-            <div class="container">
-                <h2>Screamer</h2>
-                <p class="title">Lead Vocalist</p>
-                <p>Instrument: Microphone</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="column">
-        <div class="card">
-            <img src="Map-Images/Jason_Voorhees_002.webp" alt="Jason" style="width:100%">
-            <div class="container">
-                <h2>Jason</h2>
-                <p class="title">Lead Guitarist</p>
-                <p>Instrument: Electric Guitar</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="column">
-        <div class="card">
-            <img src="Map-Images/Jigsaw2.webp" alt="Jigsaw" style="width:100%">
-            <div class="container">
-                <h2>Jigsaw</h2>
-                <p class="title">Bass Guitarist</p>
-                <p>Instrument: Bass Guitar</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="column">
-        <div class="card">
-            <img src="Map-Images/012_PCS_Retail_MyersHalloween__04359.jpg" alt="Micheal" style="width:100%">
-            <div class="container">
-                <h2>Michael</h2>
-                <p class="title">Drummer</p>
-                <p>Instrument: Drums</p>
-            </div>
-        </div>
-    </div>
-</div>
+    </script>
+</body>
 
 </html>
