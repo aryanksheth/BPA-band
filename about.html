@@ -11,152 +11,224 @@
     <link rel="stylesheet" href="navbar.css">
 
     <style>
-*{
-  box-sizing: border-box;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-body {
-  background-color: #474e5d;
-  font-family: Helvetica, sans-serif;
-}
+        body {
+            font-family: Helvetica, sans-serif;
+        }
 
-/* The actual timeline (the vertical ruler) */
-.timeline {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+        .main-content {
+            display: flex;
+            gap: 20px;
+            max-width: 1800px;
+            margin: 15px auto;
+            padding: 15px;
+            min-height: calc(100vh - 100px);
+        }
 
-/* The actual timeline (the vertical ruler) */
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 6px;
-  background-color: rgb(193, 193, 193);
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -3px;
-}
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+            flex: 1;
+            background-color: #2c3e50a9;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #a0144f;
+        }
 
-/* container-two around content */
-.container-two {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-}
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #a0144f;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            box-shadow: 0 0 10px rgba(160, 20, 79, 0.5);
+        }
 
-/* The circles on the timeline */
-.container-two::after {
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -17px;
-  background-color: #333;
-  border: 4px solid #a0144f;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 1;
-}
+        .container-two {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
 
-/* Place the container-two to the left */
-.left {
-  left: 0;
-}
+        .container-two::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            border: 4px solid #a0144f;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(160, 20, 79, 0.3);
+        }
 
-/* Place the container-two to the right */
-.right {
-  left: 50%;
-}
+        .left {
+            left: 0;
+        }
 
-/* Add arrows to the left container-two (pointing right) */
-.left::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  right: 30px;
-  border: medium solid white;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
-}
+        .right {
+            left: 50%;
+        }
 
-/* Add arrows to the right container-two (pointing left) */
-.right::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  left: 30px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-}
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #a0144f;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #a0144f;
+        }
 
-/* Fix the circle for container-twos on the right side */
-.right::after {
-  left: -16px;
-}
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #a0144f;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #a0144f transparent transparent;
+        }
 
-/* The actual content */
-.content {
-  padding: 20px 30px;
-  background-color: #2c3e50a9;
-  position: relative;
-  border-radius: 6px;
-}
+        .right::after {
+            left: -16px;
+        }
 
-/* Media queries - Responsive timeline on screens less than 600px wide */
-@media screen and (max-width: 600px) {
-  /* Place the timelime to the left */
-  .timeline::after {
-  left: 31px;
-  }
-  
-  /* Full-width container-twos */
-  .container-two {
-  width: 100%;
-  padding-left: 70px;
-  padding-right: 25px;
-  }
-  
-  /* Make sure that all arrows are pointing leftwards */
-  .container-two::before {
-  left: 60px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-  }
+        .content {
+            padding: 15px 20px;
+            background-color: #1a1a1a;
+            position: relative;
+            border-radius: 6px;
+            border: 1px solid #a0144f;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            font-size: 0.95em;
+        }
 
-  /* Make sure all circles are at the same spot */
-  .left::after, .right::after {
-  left: 15px;
-  }
-  
-  /* Make all right container-twos behave like the left ones */
-  .right {
-  left: 0%;
-  }
-}
+        .content h1 {
+            color: #a0144f;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
 
+        /* Band members styles */
+        .band-members {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 15px;
+            flex: 1;
+            background-color: #2c3e50a9;
+            border-radius: 10px;
+            border: 1px solid #a0144f;
+            max-height: calc(100vh - 130px);
+            overflow-y: auto;
+        }
 
+        .member-card {
+            background-color: #1a1a1a;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #a0144f;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            font-size: 0.95em;
+        }
+
+        .member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            object-fit: cover;
+            border: 3px solid #a0144f;
+            box-shadow: 0 0 15px rgba(160, 20, 79, 0.3);
+        }
+
+        .member-name {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .member-role {
+            color: #a0144f;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .member-bio {
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .timeline, .band-members {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .band-members {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .container-two {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .container-two::before {
+                left: 60px;
+                border: medium solid #a0144f;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #a0144f transparent transparent;
+            }
+
+            .left::after, .right::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
     </style>
 </head>
 
+<body>
     <header class="navbar">
         <div class="container">
             <div class="logo">Stage-Fright</div>
             <button class="nav-toggle">
-                <span> ☰</span>
+                <span>☰</span>
             </button>
             <ul class="nav-menu">
-                <li><a href="index.html" >Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="tour.html">Tour</a></li>
                 <li><a href="merch.html">Merchandise</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -164,56 +236,79 @@ body {
             </ul>
         </div>
     </header>
-    <body>
-    
+
+    <div class="main-content">
         <div class="timeline">
             <div class="container-two left">
                 <div class="content">
                     <h1>2017</h1>
-                    &#8226 Dropped third album, Carnival of the Macabre, inspired by freak shows.<br>
-                    &#8226 Circus-horror-themed performances cemented their legacy.
+                    &#8226; Dropped third album, Carnival of the Macabre, inspired by freak shows.<br>
+                    &#8226; Circus-horror-themed performances cemented their legacy.
                 </div>
             </div>
             <div class="container-two right">
                 <div class="content">
                     <h1>2016</h1>
-                    &#8226 Collaborated with a horror film director on cinematic music videos, boosting their cult status.
+                    &#8226; Collaborated with a horror film director on cinematic music videos, boosting their cult status.
                 </div>
             </div>
             <div class="container-two left">
                 <div class="content">
                     <h1>2015</h1>
-                   &#8226 Released second album, Under the Midnight Veil, featuring fan-favorites Haunted Reflections and Through the Eyes of the
-                    Monster.
+                    &#8226; Released second album, Under the Midnight Veil, featuring fan-favorites Haunted Reflections and Through the Eyes of the Monster.
                 </div>
             </div>
             <div class="container-two right">
                 <div class="content">
                     <h1>2012</h1>
-                    &#8226 Rose to fame at a major European gothic festival with legendary, horror-themed live shows.
+                    &#8226; Rose to fame at a major European gothic festival with legendary, horror-themed live shows.
                 </div>
             </div>
             <div class="container-two left">
                 <div class="content">
                     <h1>2011</h1>
-                    &#8226 Released debut EP, Shadows in the Dark, gaining recognition for eerie soundscapes and theatrical performances. <br>
-                    &#8226 Masks became their signature, symbolizing anonymity and artistic focus.
+                    &#8226; Released debut EP, Shadows in the Dark, gaining recognition for eerie soundscapes and theatrical performances.<br>
+                    &#8226; Masks became their signature, symbolizing anonymity and artistic focus.
                 </div>
             </div>
             <div class="container-two right">
                 <div class="content">
                     <h1>2007</h1>
-                    <ol>
-                      &#8226 Formed by musicians merging gothic rock and horror aesthetics.<br>
-                      &#8226 Adopted horror movie masks to prioritize art over identity.</li>
-                    </ol>
+                    &#8226; Formed by musicians merging gothic rock and horror aesthetics.<br>
+                    &#8226; Adopted horror movie masks to prioritize art over identity.
                 </div>
             </div>
         </div>
-    
-    </body>
-    
-    </html>
-    
 
+        <div class="band-members">
+            <div class="member-card">
+                <img src="IMG_4742.jpeg" alt="Jack Morrison" class="member-image">
+                <h3 class="member-name">Jack Morrison</h3>
+                <p class="member-role">Lead Vocals & Guitar</p>
+                <p class="member-bio">Jack's haunting vocals and aggressive guitar style form the backbone of Stage-Fright's signature sound. Influenced by classic horror films and metal pioneers, he brings a unique blend of theatricality and technical skill to the band.</p>
+            </div>
+
+            <div class="member-card">
+                <img src="IMG_4745.jpeg" alt="Sarah Blake" class="member-image">
+                <h3 class="member-name">Sarah Blake</h3>
+                <p class="member-role">Bass & Backing Vocals</p>
+                <p class="member-bio">Sarah's thunderous bass lines and haunting backing vocals add depth to Stage-Fright's sound. Her background in classical music brings an unexpected sophistication to the band's horror-metal fusion.</p>
+            </div>
+
+            <div class="member-card">
+                <img src="IMG_4748.jpeg" alt="Mike Thompson" class="member-image">
+                <h3 class="member-name">Mike Thompson</h3>
+                <p class="member-role">Lead Guitar</p>
+                <p class="member-bio">Mike's blistering solos and innovative riffs push the boundaries of horror-metal. His passion for both technical metal and atmospheric soundscapes helps create Stage-Fright's unique sonic landscape.</p>
+            </div>
+
+            <div class="member-card">
+                <img src="IMG_4973.jpeg" alt="Alex Rodriguez" class="member-image">
+                <h3 class="member-name">Alex Rodriguez</h3>
+                <p class="member-role">Drums</p>
+                <p class="member-bio">Alex's dynamic drumming style combines brutal precision with creative flair. His ability to shift from bone-crushing beats to subtle, atmospheric patterns gives Stage-Fright's music its distinctive rhythmic foundation.</p>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
