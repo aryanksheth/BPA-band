@@ -4,516 +4,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stage-Fright Official Website</title>
+    <title>Enter My Website</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        /* General Styles */
-        body {
+        /* Reset default margin and padding */
+        body,
+        html {
             margin: 0;
             padding: 0;
-            background: #1a1a1a;
-            color: #f4f4f4;
+            height: 100%;
             font-family: Arial, sans-serif;
-            text-align: center;
+            cursor: pointer;
+            /* Change cursor to indicate clickability */
         }
 
-        h1 {
-            color: white;
-            font-family: 'HelpMe';
-            text-align: center;
-            text-shadow: 0 0 10px rgba(160, 20, 79, 0.5);
-        }
-
-        h2 {
-            color: white;
-            font-family: 'Grooved';
-            font-size: 3rem;
-            text-shadow: 0 0 10px rgba(160, 20, 79, 0.5);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Map-Images/background-stagefright.webp');
+        /* Full-screen background */
+        .landing-page {
+            background-image: url('background.jpg');
+            /* Add your background image */
             background-size: cover;
             background-position: center;
+            height: 100%;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             text-align: center;
-            position: relative;
+            color: white;
+        }
+
+        /* Typewriter effect for h1 */
+        .typewriter h1 {
             overflow: hidden;
+            /* Ensures the content is not revealed until the animation */
+            border-right: 0.15em solid orange;
+            /* The typewriter cursor */
+            white-space: nowrap;
+            /* Keeps the content on a single line */
+            margin: 0 auto;
+            /* Gives that scrolling effect as the typing happens */
+            letter-spacing: 0.15em;
+            /* Adjust as needed */
+            animation:
+                typing 3.5s steps(40, end),
+                blink-caret 0.75s step-end infinite;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, transparent 0%, rgba(160, 20, 79, 0.2) 100%);
-            animation: pulse 4s infinite;
-        }
+        /* The typing effect */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
 
-        @keyframes pulse {
-            0% { opacity: 0.3; }
-            50% { opacity: 0.7; }
-            100% { opacity: 0.3; }
-        }
-
-        .hero h1 {
-            font-size: 6rem;
-            margin: 0;
-            color: #f5f5f5;
-            animation: textGlow 2s infinite alternate;
-            letter-spacing: 4px;
-            transform: scale(1);
-            transition: transform 0.3s ease;
-        }
-
-        .hero h1:hover {
-            transform: scale(1.05);
-        }
-
-        @keyframes textGlow {
-            from { text-shadow: 0 0 10px rgba(160, 20, 79, 0.5); }
-            to { text-shadow: 0 0 20px rgba(160, 20, 79, 0.8), 0 0 30px rgba(160, 20, 79, 0.6); }
-        }
-
-        .hero p {
-            font-size: 2rem;
-            margin: 30px 0;
-            color: #f5f5f5;
-            text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-            letter-spacing: 2px;
-        }
-
-        .hero .btn {
-            background: #a0144f;
-            color: #f5f5f5;
-            padding: 20px 40px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .hero .btn:hover {
-            background: transparent;
-            border-color: #a0144f;
-            box-shadow: 0 0 20px rgba(160, 20, 79, 0.5);
-        }
-
-        .hero .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-            z-index: -1;
-        }
-
-        .hero .btn:hover::before {
-            left: 100%;
-        }
-
-        /* Featured Content */
-        .featured-content {
-            padding: 50px 0;
-            background: #2c3e50a9;
-            margin: 60px auto;
-            border-radius: 10px;
-            border: 1px solid #a0144f;
-            max-width: 1200px;
-        }
-
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            padding: 20px;
-        }
-
-        .featured-item {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #a0144f;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .featured-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(160, 20, 79, 0.3);
-        }
-
-        .featured-item i {
-            font-size: 2.5rem;
-            color: #a0144f;
-            margin-bottom: 15px;
-        }
-
-        .featured-item h3 {
-            color: #fff;
-            margin: 10px 0;
-            font-size: 1.5rem;
-        }
-
-        .featured-item p {
-            color: #ccc;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        /* Carousel */
-        .carousel-container {
-            width: 100%;
-            max-width: 1000px;
-            height: 500px;
-            margin: 60px auto;
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(160, 20, 79, 0.3);
-            border: 1px solid #a0144f;
-        }
-
-        .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transform: scale(1.1);
-            transition: all 1s ease-in-out;
-            background-size: cover;
-            background-position: center;
-            filter: brightness(0.8);
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-            transform: scale(1);
-            filter: brightness(1);
-        }
-
-        .carousel-caption {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(26, 26, 26, 0.9);
-            padding: 20px 30px;
-            color: #f5f5f5;
-            border-radius: 10px;
-            font-size: 1rem;
-            text-align: center;
-            max-width: 80%;
-            border: 1px solid #a0144f;
-            box-shadow: 0 0 20px rgba(160, 20, 79, 0.3);
-        }
-
-        .carousel-caption h3 {
-            margin: 0 0 10px;
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #a0144f;
-        }
-
-        .carousel-caption p {
-            margin: 0;
-            font-size: 1rem;
-            font-style: italic;
-            color: #fff;
-        }
-
-        /* Merchandise Slideshow */
-        .slideshow-container {
-            max-width: 1000px;
-            margin: 30px auto;
-            position: relative;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 0 30px rgba(160, 20, 79, 0.3);
-            border: 1px solid #a0144f;
-        }
-
-        .mySlides {
-            display: none;
-            position: relative;
-        }
-
-        .mySlides img {
-            width: 100%;
-            border-radius: 14px;
-            transition: transform 0.3s ease;
-        }
-
-        .mySlides:hover img {
-            transform: scale(1.05);
-        }
-
-        .text {
-            color: #f2f2f2;
-            font-size: 1.2rem;
-            padding: 15px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            background: rgba(26, 26, 26, 0.9);
-            border-top: 1px solid #a0144f;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: #f5f5f5;
-            padding: 40px 0;
-            text-align: center;
-            margin-top: 50px;
-            border-top: 1px solid #a0144f;
-        }
-
-        footer .social-links {
-            margin: 20px 0;
-        }
-
-        footer .social-links a {
-            color: #f5f5f5;
-            margin: 0 15px;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        footer .social-links a:hover {
-            color: #a0144f;
-            transform: translateY(-3px);
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 1200px) {
-            .featured-grid {
-                grid-template-columns: repeat(2, 1fr);
+            to {
+                width: 100%;
             }
         }
 
-            @media (max-width: 768px) {
-                .hero h1 {
-                    font-size: 4rem;
-                    letter-spacing: 2px;
-                }
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
 
-            .hero p {
-                font-size: 1.2rem;
+            from,
+            to {
+                border-color: transparent;
             }
 
-            .featured-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .carousel-container {
-                height: 300px;
-            }
-
-            .carousel-caption {
-                padding: 15px;
-            }
-
-            .carousel-caption h3 {
-                font-size: 1.2rem;
-            }
-
-            .carousel-caption p {
-                font-size: 0.9rem;
-            }
-        }
-
-            @media (max-width: 480px) {
-                .hero h1 {
-                    font-size: 3rem;
-                    letter-spacing: 1px;
-                }
-
-            .hero .btn {
-                padding: 12px 24px;
-                font-size: 1rem;
-            }
-
-            .carousel-container {
-                height: 200px;
+            50% {
+                border-color: orange;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <header class="navbar">
-        <div class="container">
-            <div class="logo">Stage-Fright</div>
-            <button class="nav-toggle">
-                <span>☰</span>
-            </button>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="tour.html">Tour</a></li>
-                <li><a href="merch.html">Merchandise</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="about.html">About Us</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Welcome to Stage-Fright</h1>
-            <p>Experience the Horror of Live Music</p>
-            <a href="tour.html" class="btn">Get Your Tickets</a>
-        </div>
-    </section>
-
-    <!-- Featured Content -->
-    <section class="featured-content">
-        <div class="featured-grid">
-            <div class="featured-item">
-                <i class="fas fa-music"></i>
-                <h3>Latest Album</h3>
-                <p>Fear E.P - Our darkest and most theatrical album yet. A journey through the twisted world of circus horror.</p>
-            </div>
-            <div class="featured-item">
-                <i class="fas fa-ticket-alt"></i>
-                <h3>Tour Dates</h3>
-                <p>Join us on our nationwide horror-themed tour. Each show is a unique theatrical experience you won't forget.</p>
-            </div>
-            <div class="featured-item">
-                <i class="fas fa-tshirt"></i>
-                <h3>New Merch</h3>
-                <p>Check out our latest merchandise collection. Wear your nightmares with pride.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Carousel -->
-    <div class="carousel-container">
-        <div class="carousel-slide active" style="background-image: url('IMG_2601.jpeg');">
-            <div class="carousel-caption">
-                <h3>"Best night of my life!"</h3>
-                <p>- Sarah, after the Minneapolis show</p>
-            </div>
-        </div>
-        <div class="carousel-slide" style="background-image: url('IMG_4742.jpeg');">
-            <div class="carousel-caption">
-                <h3>"This band just keeps getting better!"</h3>
-                <p>- Mike on the forum</p>
-            </div>
-        </div>
-        <div class="carousel-slide" style="background-image: url('IMG_4745.jpeg');">
-            <div class="carousel-caption">
-                <h3>"Their energy was unmatched!"</h3>
-                <p>- Rachel from New York</p>
-            </div>
-        </div>
-        <div class="carousel-slide" style="background-image: url('IMG_4748.jpeg');">
-            <div class="carousel-caption">
-                <h3>"Truly a magical experience."</h3>
-                <p>- Jacob via Twitter</p>
-            </div>
-        </div>
-        <div class="carousel-slide" style="background-image: url('IMG_4973.jpeg');">
-            <div class="carousel-caption">
-                <h3>"I'll never forget this concert!"</h3>
-                <p>- Emily, first-time attendee</p>
+    <div class="landing-page">
+        <div class="content">
+            <div class="typewriter">
+                <h1>Click to experience Stage-Fright...</h1>
             </div>
         </div>
     </div>
-
-    <!-- Merchandise Slideshow -->
-    <div class="slideshow-container">
-        <div class="mySlides fade">
-            <img src="Screenshot 2025-01-22 110319.png" alt="Stage-Fright Sweater">
-            <div class="text">Stage-Fright Sweater</div>
-        </div>
-        <div class="mySlides fade">
-            <img src="Screenshot 2025-01-22 110532.png" alt="Stage-Fright T-Shirt">
-            <div class="text">Stage-Fright T-Shirt</div>
-        </div>
-        <div class="mySlides fade">
-            <img src="Screenshot 2025-01-22 110708.png" alt="Stage-Fright Hoodie">
-            <div class="text">Stage-Fright Hoodie</div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-spotify"></i></a>
-        </div>
-        <p>&copy; 2025 Stage-Fright. All rights reserved.</p>
-    </footer>
 
     <script>
-        // Mobile toggle menu
-        document.querySelector('.nav-toggle').addEventListener('click', function () {
-            this.classList.toggle('active');
-            document.querySelector('.nav-menu').classList.toggle('active');
+        // JavaScript to handle clicking anywhere on the page
+        document.addEventListener('click', function () {
+            window.location.href = 'home.html'; // Redirect to the next page
         });
-
-        // Carousel
-        document.addEventListener("DOMContentLoaded", () => {
-            const slides = document.querySelectorAll(".carousel-slide");
-            let currentIndex = 0;
-
-            function changeSlide() {
-                slides[currentIndex].classList.remove("active");
-                currentIndex = (currentIndex + 1) % slides.length;
-                slides[currentIndex].classList.add("active");
-            }
-
-            setInterval(changeSlide, 5000);
-        });
-
-        // Merchandise Slideshow
-        let slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            let slides = document.getElementsByClassName("mySlides");
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 5000);
-        }
     </script>
 </body>
 
